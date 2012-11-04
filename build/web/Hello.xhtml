@@ -1,15 +1,27 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>Hello</title>
     </h:head>
     <h:body>
         <h:form id="form1">
+            <h:panelGrid columns="2" >
             <h:outputLabel value="name:"></h:outputLabel>
-            <h:inputText id="name" value="#{HelloCtl.name}"></h:inputText>
+            <h:inputText id="name" value="#{HelloCtl.name}"></h:inputText>            
+            <h:outputLabel value="Greet Select"></h:outputLabel>
+            <h:selectOneRadio value="#{HelloCtl.greetSelect}">
+                <f:selectItems value="#{HelloCtl.greetItems}"></f:selectItems>
+            </h:selectOneRadio>
+            <h:outputLabel value="Language"></h:outputLabel>
+                <h:selectOneMenu value="#{HelloCtl.languageSelect}" label="#{HelloCtl.languageItems}">
+                    <f:selectItems value="#{HelloCtl.languageItems}"></f:selectItems>
+                </h:selectOneMenu>
+            <h:outputLabel value="&nbsp;"></h:outputLabel>
             <h:commandButton id="greet" value="greet" action="#{HelloCtl.doGreet()}"></h:commandButton>
+            </h:panelGrid>
         </h:form>
     </h:body>
 </html>
