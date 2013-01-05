@@ -8,20 +8,23 @@
     </h:head>
     <h:body>
         <h:form id="form1">
+            <h:outputScript library="js" name="base.js"></h:outputScript>
             <h:panelGrid columns="2" >
             <h:outputLabel value="name:"></h:outputLabel>
             <h:inputText id="name" value="#{HelloCtl.name}"></h:inputText>            
             <h:outputLabel value="Greet Select"></h:outputLabel>
-            <h:selectOneRadio value="#{HelloCtl.greetSelect}">
+            <h:selectOneRadio id="greetSel" value="#{HelloCtl.greetSelect}">
                 <f:selectItems value="#{HelloCtl.greetItems}"></f:selectItems>
             </h:selectOneRadio>
             <h:outputLabel value="Language"></h:outputLabel>
-                <h:selectOneMenu value="#{HelloCtl.languageSelect}" label="#{HelloCtl.languageItems}">
+                <h:selectOneMenu id="language" value="#{HelloCtl.languageSelect}" label="#{HelloCtl.languageItems}">
                     <f:selectItems value="#{HelloCtl.languageItems}"></f:selectItems>
                 </h:selectOneMenu>
             <h:outputLabel value="&nbsp;"></h:outputLabel>
             <h:commandButton id="greet" value="greet" action="#{HelloCtl.doGreet()}"></h:commandButton>
             </h:panelGrid>
+            
+            <h:commandButton id="clearButton" type="button" value="clearName" onclick="clearName();"/>
         </h:form>
     </h:body>
 </html>
